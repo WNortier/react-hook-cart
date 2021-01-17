@@ -5,12 +5,15 @@ export interface Item {
   itemTotal?: number;
 }
 
-export interface CartState {
+export interface initialState {
   items: Item[];
   isEmpty: boolean;
   totalItems: number;
   totalUniqueItems: number;
   totalCost: number;
+}
+
+export interface CartState extends initialState {
   addItem: (item: Item, quantity?: number) => void;
   removeItem: (id: Item["id"]) => void;
   clearCart: () => void;

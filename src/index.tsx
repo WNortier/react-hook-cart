@@ -3,21 +3,22 @@ import { cartReducer, CartState, Item } from "./cartReducer";
 
 const { createContext, useContext, useReducer } = React;
 
-const initialState: CartState = {
+const initialState: any = {
   items: [],
   isEmpty: true,
   totalItems: 0,
   totalUniqueItems: 0,
   totalCost: 0,
-  addItem: () => {},
-  removeItem: () => {},
-  clearCart: () => {},
-  getItem: () => undefined,
-  inCart: () => false,
 };
 
-const CartContext = createContext<CartState>(initialState);
-export const useCart = () => useContext(CartContext);
+const CartContext = createContext<CartState | undefined>(initialState);
+
+export const useCart = () => {
+  // This makes sure that the cart functions are always defined.
+  const context = useContext(CartContext);
+  if (!context) throw new Error("Expected to be wrapped in a CartProvider");
+  return context;
+};
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
