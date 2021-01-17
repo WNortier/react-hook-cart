@@ -1,28 +1,7 @@
 import * as React from "react";
-// import { Item, CartState } from "./index.d";
-import { cartReducer } from "./cartReducer";
+import { cartReducer, CartState, Item } from "./cartReducer";
 
 const { createContext, useContext, useReducer } = React;
-
-export interface Item {
-  id: string;
-  price: number;
-  quantity?: number;
-  itemTotal?: number;
-}
-
-export interface CartState {
-  items: Item[];
-  isEmpty: boolean;
-  totalItems: number;
-  totalUniqueItems: number;
-  totalCost: number;
-  addItem: (item: Item, quantity?: number) => void;
-  removeItem: (id: Item["id"]) => void;
-  clearCart: () => void;
-  getItem: (id: Item["id"]) => Item | undefined;
-  inCart: (id: Item["id"]) => boolean;
-}
 
 const initialState: CartState = {
   items: [],
