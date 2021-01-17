@@ -11,7 +11,7 @@ This is a typescript, hook using shopping cart lib, that I'm hopeful will help a
 
 <h2>🕹 API</h2>
 
-#### 🔗 `StateMachineProvider`
+#### 🔗 `CartProvider`
 
 This is a Provider Component to wrapper around your entire app(or a section of it) in order to create context for the cart.
 
