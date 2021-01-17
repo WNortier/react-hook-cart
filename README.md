@@ -16,9 +16,31 @@ This is a typescript, hook using shopping cart lib, that I'm hopeful will help a
 This is a Provider Component to wrapper around your entire app(or a section of it) in order to create context for the cart.
 
 ```tsx
-import { CartProvider } from "react-hook-cart"
+import { CartProvider } from "react-hook-cart";
 
 <CartProvider>
   <App />
 </CartProvider>
+```
+
+#### 🔗 `useCart()`
+
+Function to expose cart functionality
+
+```tsx
+import { useCart } from "react-hook-cart";
+
+const ShowCart = () => {
+  const { items } = useCart();
+
+  return (
+    <div>
+      <ul>
+        {items.map((item) => (
+          <li>{item.id}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 ```
